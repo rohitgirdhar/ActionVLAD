@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>ActionVLAD: Learning spatio-temporal aggregation for action classification</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- bibliographic tags -->
+<meta name="citation_title" content="ActionVLAD: Learning spatio-temporal aggregation for action classification"/>
+<meta name="citation_author" content="Girdhar, Rohit"/>
+<meta name="citation_author" content="Ramanan, Deva"/>
+<meta name="citation_author" content="Gupta, Abhinav"/>
+<meta name="citation_author" content="Sivic, Josef"/>
+<meta name="citation_author" content="Russell, Bryan"/>
+<meta name="citation_publication_date" content="2017"/>
+<meta name="citation_journal_title" content=""/>
+<meta name="citation_pdf_url" content=""/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="http://rohitgirdhar.github.io/favicon.png">
+
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <br>
+        <h4 class="header center" style="max-width: 800px">ActionVLAD: Learning spatio-temporal <br/> aggregation for action classification</h4>
+        <h6 class="header center">
+            <a style="padding: 0 0.5em 0 0.5em" href="http://www.cs.cmu.edu/~rgirdhar/">Rohit&nbsp;Girdhar</a>
+            <a style="padding: 0 0.5em 0 0.5em" href="http://www.cs.cmu.edu/~deva/">Deva&nbsp;Ramanan</a>
+            <a style="padding: 0 0.5em 0 0.5em" href="http://www.cs.cmu.edu/~abhinavg/">Abhinav&nbsp;Gupta</a>
+            <a style="padding: 0 0.5em 0 0.5em" href="http://www.di.ens.fr/~josef/">Josef&nbsp;Sivic</a>
+            <a style="padding: 0 0.5em 0 0.5em" href="http://www.bryanrussell.org">Bryan&nbsp;Russell</a>
+			<p><span style="padding: 0 0.5em 0 0.5em">Carnegie Mellon University &middot; Adobe Research &middot; INRIA</span></p>
+
+        </h6>
+        <div class="center">
+            <img src="assets/teaser.png" style="width: 70%;">
+        </div>
+
+
+        <p class="container" style='text-align: justify;'>
+        In this work, we introduce a new video representation for action classification that
+        aggregates local convolutional features across the entire spatio-temporal extent of the video.
+        We do so by integrating state-of-the-art two-stream networks with learnable spatio-temporal NetVLAD codebooks.
+        The resulting architecture is end-to-end trainable for whole-video classification.
+        We investigate different strategies for pooling across space and time and combining signals from
+        the different streams. We find that  (i) it is important to pool jointly across space and time, but (ii) appearance and motion streams are best aggregated into their own separate representations.
+        Finally,  we  show  that  our representation  outperforms  the  two-stream  base  architecture by a large margin (13% relative) as well as outperforms other baselines with comparable base architectures when combined with iDT, on HMDB51 and UCF101 video classification benchmarks.
+        </p>
+    </div>
+    <br>
+
+    <table class="container">
+      <tr></tr>
+      <tr><td>
+        <a href="docs/paper.pdf"><img style="box-shadow: 5px 5px 2px #888888;" src="assets/paper-screenshot.png" width="150px"/></a>
+      </td>
+      <td></td>
+      <td>
+    R. Girdhar, D. Ramanan, A. Gupta, J. Sivic and B. Russell <br/>
+    <a href="https://rohitgirdhar.github.io/ActionVLAD">ActionVLAD: Learning spatio-temporal
+    aggregation for action classification</a> <br/>
+    In Proc. of Conference on <i>Computer Vision and Pattern Recognition (CVPR)</i>, 2017 <br/>
+    [<a href="docs/#">PDF</a>] [<a href="">arXiv</a>] [<a href="">code</a>] [<a href="">Supplementary</a>]
+    [<a href="javascript:togglevis('girdhar17a')" id="bibtex">BibTex</a>]
+    </table>
+
+    <div class="container" style="display:none" id="girdhar17a"><tr><td>
+    <pre>
+    @inproceedings{Girdhar_17a_ActionVLAD,
+        title = {ActionVLAD: Learning spatio-temporal
+                 aggregation for action classification},
+        author = {Girdhar, Rohit and
+                  Ramanan, Deva and
+                  Gupta, Abhinav and
+                  Sivic, Josef and
+                  Russell, Bryan},
+        booktitle = {CVPR},
+        year = 2017
+    }
+    </pre>
+    </td></tr></div>
+
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+      function togglevis(elid){
+        el=document.getElementById(elid);
+        aelid=elid+"a";
+        ael=document.getElementById(aelid);
+        if(el.style.display=='none'){
+          el.style.display='';
+          ael.innerHTML="[Hide BibTex]";
+        }else{
+          el.style.display='none';
+          ael.innerHTML="[Show BibTex]";
+        }
+      }
+    </script>
+</body>
+</html>
+
