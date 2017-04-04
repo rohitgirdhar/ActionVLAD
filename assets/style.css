@@ -25,6 +25,21 @@ body {
 	padding-left: 10px;
 }
 
+#people table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#people td {
+  text-align: center;
+  padding: 0.5vw;
+}
+
+#people img {
+  max-height: 150px;
+  height: 10vw;
+}
+
 #primarycontent {
   max-width: 800px;
   width: expression(document.body.clientWidth > 800? "800px": "auto" );
