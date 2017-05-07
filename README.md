@@ -1,4 +1,4 @@
-# ActionVLAD: Learning spatio-temporal aggregation for action classification
+# [ActionVLAD: Learning spatio-temporal aggregation for action classification](https://rohitgirdhar.github.io/ActionVLAD/)
 
 If this code helps with your work/research, please consider citing
 
@@ -53,6 +53,17 @@ This code has been tested on a Linux (CentOS 6.5) system, though should be compa
    - h5py
    - pickle, cPikcle etc
 
+
+## Quick Demo
+
+This demo runs the RGB ActionVLAD model on a video. You will need the pretrained
+models, which can be downloaded using the `get_models.sh` script, as described later
+in this document.
+
+```bash
+$ cd demo
+$ bash run.sh <video_path>
+```
 
 ## Setting up the data
 
