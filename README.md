@@ -8,7 +8,7 @@ In Conference on Computer Vision and Pattern Recognition (CVPR), 2017.
 
 ```txt
 @inproceedings{Girdhar_17a_ActionVLAD,
-    title = {ActionVLAD: Learning spatio-temporal aggregation for action classification},
+    title = {{ActionVLAD}: Learning spatio-temporal aggregation for action classification},
     author = {Girdhar, Rohit and Ramanan, Deva and Gupta, Abhinav and Sivic, Josef and Russell, Bryan},
     booktitle = {CVPR},
     year = 2017
