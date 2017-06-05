@@ -29,17 +29,20 @@ from tensorflow.python.platform import tf_logging as logging
 
 from nets import vgg
 from nets import frame_pooling as pooling
+from nets import inception
 
 slim = tf.contrib.slim
 
 networks_map = {'vgg_a': vgg.vgg_a,
                 'vgg_16': vgg.vgg_16,
                 'vgg_19': vgg.vgg_19,
+                'inception_v2_tsn': inception.inception_v2_tsn,
                }
 
 arg_scopes_map = {'vgg_a': vgg.vgg_arg_scope,
                   'vgg_16': vgg.vgg_arg_scope,
                   'vgg_19': vgg.vgg_arg_scope,
+                  'inception_v2_tsn': inception.inception_v2_tsn_arg_scope,
                  }
 
 def split_images(images, num_channels_stream):

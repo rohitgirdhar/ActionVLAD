@@ -37,3 +37,7 @@ wget https://cmu.box.com/shared/static/tmdgeia6o87a4zn7vgtewcpg5hn49cp5.ckpt -O 
 wget https://cmu.box.com/shared/static/s2y9jq9q74r3goncqiz5qi5g68vdrgra.ckpt -O $ACTIONVLAD_DIR/hmdb51/flow/split1.ckpt
 wget https://cmu.box.com/shared/static/u4xqq7mh80a7pgg4m4pl7gxqteq8lf13.ckpt -O $ACTIONVLAD_DIR/hmdb51/flow/split2.ckpt
 wget https://cmu.box.com/shared/static/rip1usq4skvbf9ldmk1lpkpf02spwuv6.ckpt -O $ACTIONVLAD_DIR/hmdb51/flow/split3.ckpt
+
+# Pretrained ActionVLAD model (Charades)
+# RGB (no flow model trained for this work)
+wget https://cmu.box.com/shared/static/fej1bd8v72ftqo3aul8ijppgniipne36.data-00000-of-00001 -O $ACTIONVLAD_DIR/charadesV1/model.ckpt-150000.data-00000-of-00001
