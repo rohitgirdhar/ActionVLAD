@@ -5,7 +5,7 @@ LD_PRELOAD=/usr/lib64/libtcmalloc.so.4 \
   --gpus 0 \
   --batch_size 1 \
   --frames_per_video 25 \
-  --checkpoint_path models/Experiments/001_VGG_RGB_HMDB_netvlad_stage2 \
+  --checkpoint_path models/PreTrained/ActionVLAD-pretrained/hmdb51/rgb/split1.ckpt \
   --dataset_dir $1 \
   --dataset_list_dir $2 \
   --dataset_name hmdb51 \
