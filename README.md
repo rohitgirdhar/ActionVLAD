@@ -15,6 +15,11 @@ In Conference on Computer Vision and Pattern Recognition (CVPR), 2017.
 }
 ```
 
+## Updates
+
+July 15, 2017: Released Charades training scripts and models
+May 7, 2017: First release
+
 ## Quick Fusion
 If you're only looking for our final last-layer features that can be combined with your method, we provide those
 for the following datasets:
@@ -104,6 +109,13 @@ For ease of reproduction, you can download our [frames](https://cmu.box.com/shar
 [optical flow](https://cmu.box.com/shared/static/prpeizkk9ohil8yx40cdlodp84u8ttva.tgz) (`.tgz`, 4.7GB) on HMDB51.
 Our UCF101 models should be compatible with the data provided with the [Good Practices](http://yjxiong.me/others/action_recog/) paper.
 
+
+### Charades Data
+
+Can be directly downloaded from [official website](http://allenai.org/plato/charades/).
+This code assumes the [480px scaled frames](http://ai2-website.s3.amazonaws.com/data/Charades_v1_480.zip)
+to be stored at `data/charadesV1/frames`.
+
 ## Testing pre-trained models
 
 Download the models using `get_models.sh` script. Comment out specific lines
@@ -135,6 +147,27 @@ This can lead to some local shuffling in the order of videos at test time, which
 leads to inconsistent results when late-fusing different methods.
 This has been fixed now by
 forcing the use of a single thread when saving features to the disk.
+
+### Charades testing
+Charades models were trained using a slightly different version of TF, so need a
+bit more work to test. Download the model data file as mentioned
+in the `get_data.sh` script (by default, it will download).
+Then,
+
+```bash
+$ cp models/PreTrained/ActionVLAD-pretrained/charadesV1/checkpoint.example models/PreTrained/ActionVLAD-pretrained/charadesV1/checkpoint
+$ vim models/PreTrained/ActionVLAD-pretrained/charadesV1/checkpoint
+$ # modify the file and replace the $BASE_DIR with the **absolute path** of where the ActionVLAD repository is cloned to
+$ # Now, for testing
+$ cd experiments && bash 006_InceptionV2TSN_RGB_Charades_eval.sh
+$ cd .. && bash eval/charades_eval.sh data/charadesV1/feats.h5
+```
+
+The above should reproduce the following numbers:
+
+|      | mAP | wAP |
+|------|-----|-----|
+| ActionVLAD (RGB) | 17.66 | 25.17 |
 
 ## Training
 
