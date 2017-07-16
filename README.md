@@ -17,8 +17,8 @@ In Conference on Computer Vision and Pattern Recognition (CVPR), 2017.
 
 ## Updates
 
-July 15, 2017: Released Charades training scripts and models
-May 7, 2017: First release
+- July 15, 2017: Released Charades models
+- May 7, 2017: First release
 
 ## Quick Fusion
 If you're only looking for our final last-layer features that can be combined with your method, we provide those
