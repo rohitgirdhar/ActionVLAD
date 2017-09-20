@@ -34,7 +34,8 @@ Note: Be careful to re-organize them given our filename and class ordering.
 This code has been tested on a Linux (CentOS 6.5) system, though should be compatible with any OS running python and tensorflow.
 
 1. TensorFlow (0.12.0rc0)
-   - There have been breaking API changes in v1.0, so this code is not directly compatible with the latest tensorflow release
+   - There have been breaking API changes in v1.0, so this code is not directly compatible with the latest tensorflow release. 
+     You can try to use my pre-compiled [WHL file](https://cmu.box.com/shared/static/ayc9oeuwrmi5dnamdrz99n63bwnznely.whl).
    - You may consider installing tensorflow into an environment. On anaconda, it can be done by:
 
         ```bash
