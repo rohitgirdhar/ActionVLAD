@@ -1,3 +1,5 @@
 *.pyc
 *.swp
 *.so
+models/
+data/

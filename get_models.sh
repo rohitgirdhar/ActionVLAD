@@ -38,6 +38,16 @@ wget https://cmu.box.com/shared/static/s2y9jq9q74r3goncqiz5qi5g68vdrgra.ckpt -O 
 wget https://cmu.box.com/shared/static/u4xqq7mh80a7pgg4m4pl7gxqteq8lf13.ckpt -O $ACTIONVLAD_DIR/hmdb51/flow/split2.ckpt
 wget https://cmu.box.com/shared/static/rip1usq4skvbf9ldmk1lpkpf02spwuv6.ckpt -O $ACTIONVLAD_DIR/hmdb51/flow/split3.ckpt
 
+# Pretrained ActionVLAD models (UCF101)
+## rgb
+wget https://cmu.box.com/shared/static/1qrq5mmfnk10gh7p6owwos6f24ncsltj.ckpt -O $ACTIONVLAD_DIR/ucf101/rgb/split1.ckpt
+wget https://cmu.box.com/shared/static/qhf212ufp7otkdn0z3bbvnz5zq1skh8w.ckpt -O $ACTIONVLAD_DIR/ucf101/rgb/split2.ckpt
+wget https://cmu.box.com/shared/static/fsjawa834ls0yzsgqpq6yxi34jm2a6bv.ckpt -O $ACTIONVLAD_DIR/ucf101/rgb/split3.ckpt
+## flow
+wget https://cmu.box.com/shared/static/cbv9wxkku4qvzxse1n549dl5x6h9anz6.ckpt -O $ACTIONVLAD_DIR/ucf101/flow/split1.ckpt
+wget https://cmu.box.com/shared/static/sviba34r77o27rc3nzfcp6osjtncytra.ckpt -O $ACTIONVLAD_DIR/ucf101/flow/split2.ckpt
+wget https://cmu.box.com/shared/static/m9su357b4w8xikb7vytwg31gkxvjzspu.ckpt -O $ACTIONVLAD_DIR/ucf101/flow/split3.ckpt
+
 # Pretrained ActionVLAD model (Charades)
 # RGB (no flow model trained for this work)
 wget https://cmu.box.com/shared/static/fej1bd8v72ftqo3aul8ijppgniipne36.data-00000-of-00001 -O $ACTIONVLAD_DIR/charadesV1/model.ckpt-150000.data-00000-of-00001
