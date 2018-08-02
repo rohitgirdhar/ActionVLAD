@@ -45,7 +45,7 @@ This code has been tested on a Linux (CentOS 6.5) system, though should be compa
                              # else it will use global pip and overwrite your
                              # main TF installation
         $ pip install h5py  # and other libs, if need to be installed
-        $ git clone git@github.com:tensorflow/tensorflow.git
+        $ git clone https://github.com/tensorflow/tensorflow.git
         $ git checkout tags/0.12.0rc0
         $ # Compile tensorflow. Refer https://www.tensorflow.org/install/install_sources
         $ # If compiling on a CentOS (<7) machine, you might find the following instructions useful:
