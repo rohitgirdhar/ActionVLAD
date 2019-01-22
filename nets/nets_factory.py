@@ -131,9 +131,12 @@ def get_network_fn(
               with tf.variable_scope('pooled-batch-norm'):
                 net = slim.batch_norm(net, is_training=is_training)
 
-            if classifier_type is not None and not 'None':
-              net = slim.dropout(net, pooled_dropout_keep_prob, scope='pooled-dropout',
-                                 is_training=is_training)
+            if classifier_type is not None and classifier_type != 'None':
+              print('Dropout is not being applied to the model to be consistent with original release of the code. '
+                    'Due to an issue it was not enabled in the original release. '
+                    'Please uncomment lines in nets/nets_factory.py to enable the dropout.')
+              # net = slim.dropout(net, pooled_dropout_keep_prob, scope='pooled-dropout',
+              #                    is_training=is_training)
             if classifier_type == 'linear':
               with tf.variable_scope('classifier'):
                 net = slim.fully_connected(
