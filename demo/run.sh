@@ -41,4 +41,4 @@ echo "frames $(ls $FRAME_DIR | wc -l) -1" > $LIST_DIR/train_split1.txt
 bash ext_feats.sh $TMPDIR $LIST_DIR $FEAT_FILE
 
 # 4. Get the class
-python3 get_class.py $FEAT_FILE ../data/hmdb51/train_test_lists/actions.txt
+python get_class.py $FEAT_FILE ../data/hmdb51/train_test_lists/actions.txt

@@ -11,7 +11,7 @@ WORKDIR /app
 
 # Apt-get all needed dependencies
 RUN apt-get update
-RUN apt-get install -y git wget make gcc python3 python3-pip build-essential curl \
+RUN apt-get install -y git wget make gcc python python-pip build-essential curl \
 		 cmake libreadline-dev git-core libqt4-dev libjpeg-dev \
 		 libpng-dev ncurses-dev imagemagick libzmq3-dev gfortran \
 		 unzip gnuplot gnuplot-x11 sudo vim libopencv-dev google-perftools \
@@ -28,7 +28,8 @@ COPY ./docker_files/dev-cuDNN.deb /
 RUN dpkg -i dev-cuDNN.deb
 
 # Install needed python packages
-RUN pip3 install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==1.1.0
+RUN pip install --upgrade pip
+RUN pip install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==1.1.0
 RUN git config --global url.https://github.com/.insteadOf git://github.com/
 
 # Explicitly clone and install OpenBLAS (needed for torch)
