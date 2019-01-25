@@ -16,23 +16,19 @@ RUN echo "LD_PRELOAD=/usr/lib/libtcmalloc.so.4" | tee -a /etc/environment
 ENV LD_PRELOAD "/usr/lib/libtcmalloc.so.4:$LD_PRELOAD"
 
 # Install cuDNN and the dev files for cuDNN
-WORKDIR /
-COPY ./docker_files/cuDNN.deb /
-RUN dpkg -i cuDNN.deb
-COPY ./docker_files/dev-cuDNN.deb /
-RUN dpkg -i dev-cuDNN.deb
+# WORKDIR /
+# COPY ./docker_files/cuDNN.deb /
+# RUN dpkg -i cuDNN.deb
+# COPY ./docker_files/dev-cuDNN.deb /
+# RUN dpkg -i dev-cuDNN.deb
 
 # Install needed python packages
 RUN pip install --upgrade pip
-RUN pip install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==1.1.0
+RUN pip install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==0.12.0rc0
 RUN git config --global url.https://github.com/.insteadOf git://github.com/
 
-# Set variable for libcudnn.so.5
-WORKDIR /
-ENV CUDNN_PATH="/libcudnn.so.5"
-
 # Clone git repo
-RUN git clone -b master https://github.com/rohitgirdhar/ActionVLAD.git /app/ActionVLAD --recursive
+RUN git clone -b master https://github.com/fninaparavecino/ActionVLAD.git /app/ActionVLAD --recursive
 WORKDIR /app/ActionVLAD/
 
 #copy weights
@@ -54,15 +50,18 @@ COPY ./docker_files/models/PreTrained/imagenet-trained-CUHK/vgg_16_action_rgb_pr
 
 #copy video to test
 COPY ./docker_files/soccer10.mp4 /app/ActionVLAD/demo/
-# Copy over this temp file needed for hourglass
-#WORKDIR /app/vogue/
-#COPY ./docker_files/temp.h5 /app/vogue/src/core/hourglass/preds/
 
-# Copy over this file also needed for hourglass
-COPY ./docker_files/libcudnn.so.5 /
+# Copy over cudnn.5.1 also needed for tensorflow
+COPY ./docker_files/cuda_cudnn5_1/lib64/libcudnn.so.5 /usr/lib/x86_64-linux-gnu/
+COPY ./docker_files/cuda_cudnn5_1/lib64/libcudnn.so.5.1.10 /usr/lib/x86_64-linux-gnu/
+COPY ./docker_files/cuda_cudnn5_1/lib64/libcudnn_static_v5.a /usr/lib/x86_64-linux-gnu/
+COPY ./docker_files/cuda_cudnn5_1/include/cudnn_v5.h /usr/include/x86_64-linux-gnu/
+RUN ln -sf /usr/lib/x86_64-linux-gnu/libcudnn_static_v5.a libcudnn_stlib
+RUN ln -sf /usr/lib/x86_64-linux-gnu/libcudnn.so.5 libcudnn_so
+RUN ln -sf /usr/include/x86_64-linux-gnu/cudnn_v5.h libcudnn
 
 # Remove the install files for cuDNN
-WORKDIR /
-RUN rm -f cuDNN.deb dev-cuDNN.deb
+#WORKDIR /
+#RUN rm -f cuDNN.deb dev-cuDNN.deb
 
 WORKDIR /app/ActionVLAD/
