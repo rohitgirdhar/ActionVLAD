@@ -1,11 +1,6 @@
 # Set the base as the nvidia-cuda Docker
 FROM nvidia/cuda:8.0-devel
 
-# Set the proxies needed to work inside the Intel network
-# If outside of the network, comment out
-ENV http_proxy http://proxy-chain.intel.com:911
-ENV https_proxy https://proxy-chain.intel.com:912
-
 # Create directory for all of the files to go into and cd into it
 WORKDIR /app
 
@@ -32,31 +27,11 @@ RUN pip install --upgrade pip
 RUN pip install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==1.1.0
 RUN git config --global url.https://github.com/.insteadOf git://github.com/
 
-# Explicitly clone and install OpenBLAS (needed for torch)
-# WORKDIR /
-# RUN git clone https://github.com/xianyi/OpenBLAS.git
-# WORKDIR /OpenBLAS
-# RUN make NO_AFFINITY=1 USE_OPENMP=1
-# RUN make install
-
-# # Now install torch
-# WORKDIR /app/
-# RUN git clone https://github.com/torch/distro.git --recursive
-# WORKDIR /app/distro
-# RUN CMAKE_LIBRARY_PATH=/opt/OpenBLAS/include:/opt/OpenBLAS/lib:$CMAKE_LIBRARY_PATH TORCH_NVCC_FLAGS="-D__CUDA_NO_HALF_OPERATORS__" ./install.sh -b
-# WORKDIR /app/distro/
-# WORKDIR /app/distro/install/bin
-
-# # Install HDF5
-# RUN ./luarocks install "https://raw.github.com/deepmind/torch-hdf5/master/hdf5-0-0.rockspec"
-# # Have torch show up in PATH
-# ENV PATH "/root/distro/install/bin:$PATH"
-
-# Set variable for libcudnn for torch
+# Set variable for libcudnn.so.5
 WORKDIR /
 ENV CUDNN_PATH="/libcudnn.so.5"
 
-# Clone vogue (change this line for skinny-vogue, if desired)
+# Clone git repo
 RUN git clone -b master https://github.com/rohitgirdhar/ActionVLAD.git /app/ActionVLAD --recursive
 WORKDIR /app/ActionVLAD/
 
@@ -89,15 +64,5 @@ COPY ./docker_files/libcudnn.so.5 /
 # Remove the install files for cuDNN
 WORKDIR /
 RUN rm -f cuDNN.deb dev-cuDNN.deb
-
-# Install eigen
-WORKDIR /app/
-RUN wget http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz
-RUN tar -xvf 3.3.5.tar.gz
-RUN mv eigen-eigen-b3f3d4950030/ eigen/
-WORKDIR /app/eigen/build
-RUN pwd
-RUN cmake ..
-RUN make && make install
 
 WORKDIR /app/ActionVLAD/
