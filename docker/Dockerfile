@@ -16,11 +16,11 @@ RUN echo "LD_PRELOAD=/usr/lib/libtcmalloc.so.4" | tee -a /etc/environment
 ENV LD_PRELOAD "/usr/lib/libtcmalloc.so.4:$LD_PRELOAD"
 
 # Install cuDNN and the dev files for cuDNN
-# WORKDIR /
-# COPY ./docker_files/cuDNN.deb /
-# RUN dpkg -i cuDNN.deb
-# COPY ./docker_files/dev-cuDNN.deb /
-# RUN dpkg -i dev-cuDNN.deb
+WORKDIR /
+COPY ./docker_files/cuDNN.deb /
+RUN dpkg -i cuDNN.deb
+COPY ./docker_files/dev-cuDNN.deb /
+RUN dpkg -i dev-cuDNN.deb
 
 # Install needed python packages
 RUN pip install --upgrade pip
@@ -61,7 +61,7 @@ RUN ln -sf /usr/lib/x86_64-linux-gnu/libcudnn.so.5 libcudnn_so
 RUN ln -sf /usr/include/x86_64-linux-gnu/cudnn_v5.h libcudnn
 
 # Remove the install files for cuDNN
-#WORKDIR /
-#RUN rm -f cuDNN.deb dev-cuDNN.deb
+WORKDIR /
+RUN rm -f cuDNN.deb dev-cuDNN.deb
 
 WORKDIR /app/ActionVLAD/
