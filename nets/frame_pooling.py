@@ -4,7 +4,7 @@
 # Please see LICENSE on https://github.com/rohitgirdhar/ActionVLAD/ for details
 # ------------------------------------------------------------------------------
 import numpy as np
-import cPickle as pickle
+import pickle as pickle
 
 import tensorflow as tf
 from tensorflow.contrib import slim

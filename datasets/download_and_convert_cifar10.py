@@ -31,7 +31,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import cPickle
+import pickle
 import os
 import sys
 import tarfile
@@ -78,7 +78,8 @@ def _add_to_tfrecord(filename, tfrecord_writer, offset=0):
     The new offset.
   """
   with tf.gfile.Open(filename, 'r') as f:
-    data = cPickle.load(f)
+    # data = cPickle.load(f)
+    data = pickle.load(f)
 
   images = data['data']
   num_images = images.shape[0]

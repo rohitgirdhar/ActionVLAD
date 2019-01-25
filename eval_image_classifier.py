@@ -47,6 +47,7 @@ tf.app.flags.DEFINE_integer(
 
 tf.app.flags.DEFINE_string(
     'gpus', '0', 'GPUs to use for testing.')
+print(FLAGS.gpus)
 os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpus
 if len(FLAGS.gpus.strip().split(',')) > 1:
   print('Multi-gpu testing not supported yet. Specify one gpu.')

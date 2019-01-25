@@ -1,6 +1,6 @@
 cd ../
-LD_PRELOAD=/usr/lib64/libtcmalloc.so.4 \
-  python \
+LD_PRELOAD=/usr/lib/libtcmalloc.so.4 \
+  python3 \
   eval_image_classifier.py \
   --gpus 0 \
   --batch_size 1 \

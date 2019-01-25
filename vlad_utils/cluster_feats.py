@@ -4,7 +4,7 @@
 # Please see LICENSE on https://github.com/rohitgirdhar/ActionVLAD/ for details
 # ------------------------------------------------------------------------------
 import numpy as np
-import cPickle as pickle
+import pickle as pickle
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import normalize
 import h5py
