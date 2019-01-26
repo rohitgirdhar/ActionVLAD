@@ -28,7 +28,7 @@ RUN pip install numpy PILLOW h5py matplotlib scipy tensorflow-gpu==0.12.0rc0
 RUN git config --global url.https://github.com/.insteadOf git://github.com/
 
 # Clone git repo
-RUN git clone -b master https://github.com/fninaparavecino/ActionVLAD.git /app/ActionVLAD --recursive
+RUN git clone -b master https://github.com/rohitgirdhar/ActionVLAD.git /app/ActionVLAD --recursive
 WORKDIR /app/ActionVLAD/
 
 #copy weights
