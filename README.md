@@ -29,6 +29,13 @@ for the following datasets:
 
 Note: Be careful to re-organize them given our filename and class ordering.
 
+## Docker installation
+
+Create docker_files folder where there should be the cudnn5.1 (include and lib) and also the models folder.
+```
+$ docker build -t action:latest .
+```
+
 
 ## Pre-requisites
 This code has been tested on a Linux (CentOS 6.5) system, though should be compatible with any OS running python and tensorflow.
